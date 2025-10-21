@@ -1,12 +1,19 @@
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  title: {
+    absolute: "Contact",
+  },
+};
 
 const Contact = () => {
   return (
     <div>
-      <h1>Contact me</h1>
-      <section>
-        <h2>Contact form</h2>
+      <h1 className=" text-2xl">Contact me</h1>
+
+      <section className=" flex justify-center">
         <form action="">
           <label>Name : </label>
           <input type="text" placeholder="Ssebayigga Sharif" />
@@ -29,6 +36,12 @@ const Contact = () => {
           </Link>
         </form>
       </section>
+      <Image
+        src="/Screenshot (31).png"
+        alt="my image"
+        width={200}
+        height={200}
+      />
     </div>
   );
 };

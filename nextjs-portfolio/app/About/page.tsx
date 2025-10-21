@@ -1,9 +1,18 @@
 import React from "react";
+import { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+export const metadata: Metadata = {
+  title: {
+    absolute: "About",
+  },
+};
 
 const AboutMe = () => {
   return (
     <div>
       <h1>About me</h1>
+
       <div>
         I am Ssebayigga Sharif, a passionate Frond-End Developer with love for
         clean code ,beautiful interfaces, and smppth user experience. I
@@ -11,6 +20,12 @@ const AboutMe = () => {
         HTML, CSS, Javascript and React.js, Next.js plus Tailwind CSS. My goal
         is to craft interfaces that feel justgood as they look
       </div>
+      <Image
+        src="/Screenshot (31).png"
+        alt="my image"
+        width={400}
+        height={400}
+      />
       <h2>Background and Journey</h2>
       <div>
         {" "}

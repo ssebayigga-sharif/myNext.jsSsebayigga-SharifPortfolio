@@ -1,4 +1,12 @@
 import React from "react";
+import { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+export const metadata: Metadata = {
+  title: {
+    absolute: "Why Me",
+  },
+};
 
 const WhyMe = () => {
   return (
@@ -9,8 +17,8 @@ const WhyMe = () => {
       not just work — they feel right. With a strong foundation in React,
       Next.js, TypeScript, and Tailwind CSS, My focus is on crafting responsive,
       and user-centered solutions that help businesses stand out online.
-      <section>
-        <h2>What Makes Me Different</h2>
+      <h2>What Makes Me Different</h2>
+      <section className=" bg-[url('/Screenshot (31).png')] bg-cover bg-center bg-no-repeat h-screen w-full">
         Modern Front-End Stack: I build scalable, maintainable applications
         using the latest web technologies — including Next.js for performance,
         and Tailwind CSS for clean, efficient styling. I believe the small
@@ -20,6 +28,13 @@ const WhyMe = () => {
         clearly, and adapt quickly to new challenges. Continuous Learning: The
         web evolves fast and so do I. I constantly improve my skills to stay
         ahead of trends and deliver top-quality results.
+        <Image
+          src="/Screenshot (31).png"
+          alt="my image"
+          width={400}
+          height={400}
+          className=" ml-auto mr-7"
+        />
       </section>
       <section>
         <h3>My Goal</h3>
