@@ -13,9 +13,12 @@ export const metadata: Metadata = {
 };
 
 const Contact = () => {
+  const getMe: string = "contact me";
   return (
     <div>
-      <h1 className=" text-8xl animate-bounce text-pink-600">Contact me</h1>
+      <h1 className=" text-8xl animate-bounce text-pink-600 capitalize">
+        {getMe}
+      </h1>
       <ContactForm />
     </div>
   );

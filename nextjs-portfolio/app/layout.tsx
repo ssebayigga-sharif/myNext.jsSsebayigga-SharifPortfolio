@@ -46,7 +46,7 @@ export default function RootLayout({
             <Link href={"/"}>Web Developer</Link>
           </button>
 
-          <div className=" flex justify-end">
+          <nav className=" flex justify-end">
             {" "}
             <button className=" pl-2.5 pr-2.5 text-2xl hover:text-red-700">
               <Link href={"/"}>Home</Link>
@@ -63,7 +63,7 @@ export default function RootLayout({
             <button className=" pr-2.5 pl-2.5 text-2xl hover:text-red-700">
               <Link href={"/Why"}>Why me</Link>
             </button>
-          </div>
+          </nav>
         </header>
         {children}
         <footer className=" flex justify-center pt-7 pb-7 bg-black text-white">

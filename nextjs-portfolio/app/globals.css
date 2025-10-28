@@ -1,4 +1,7 @@
 @import "tailwindcss";
+/* @tailwind base;
+@tailwind components; */
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
@@ -20,7 +23,7 @@
 }
 
 body {
-  background-color: rgb(251, 252, 252);
+  background-color: #fcfcfc;
   text-align: center;
   font-weight: bolder;
 }

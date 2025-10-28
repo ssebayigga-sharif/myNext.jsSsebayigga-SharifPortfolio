@@ -55,9 +55,12 @@ const ContactForm = () => {
             </Link>
           </form>
         </section>
-        <section className=" rounded-b-full rounded-t-full bg-blue-300 justify-center w-3xs opacity-20">
+        <section
+          className=" rounded-b-full rounded-t-full bg-blue-300 justify-center 
+        w-3xs opacity-20"
+        >
           <Link href={"/Skills"}>
-            <Image src="/Saaarif.png" alt="my image" width={200} height={300} />
+            <Image src="/saaarif.png" alt="my image" width={200} height={300} />
           </Link>{" "}
         </section>
       </div>
