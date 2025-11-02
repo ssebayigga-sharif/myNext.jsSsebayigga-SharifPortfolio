@@ -32,59 +32,112 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="pt-7 pb-7 bg-black text-white">
-          <button className=" flex flex-row text-5xl hover:text-shadow-cyan-600">
-            <div className="flex items-center space-x-2">
-              <Image
-                src="/saaarif.png"
-                alt="Sharif Logo"
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
+        <header
+          className="pt-7 pb-7 bg-linear-to-r from-black via-slate-900 to-gray-900
+         text-white shadow-lg"
+        >
+          <div
+            className="flex flex-col md:flex-row md:items-center md:justify-between w-full 
+        max-w-7xl px-6 mx-auto gap-4"
+          >
+            {/* Logo & Site Name */}
+            <div className="flex items-center gap-4">
+              <Link href="/" className="flex items-center space-x-3 group">
+                <Image
+                  src="/saaarif.png"
+                  alt="Sharif Logo"
+                  width={48}
+                  height={48}
+                  className="rounded-full drop-shadow-xl border-2 border-blue-500 group-hover:scale-110
+                 group-hover:border-cyan-400 transition"
+                />
+                <span
+                  className="text-3xl md:text-4xl font-bold tracking-tight text-white
+               group-hover:text-blue-300 transition"
+                >
+                  Web Developer
+                </span>
+              </Link>
             </div>
-            <Link href={"/"}>Web Developer</Link>
-          </button>
-
-          <nav className=" flex justify-end">
-            {" "}
-            <button className=" pl-2.5 pr-2.5 text-2xl hover:text-red-700">
-              <Link href={"/"}>Home</Link>
-            </button>
-            <button className=" pl-2.5 pr-2.5 text-2xl hover:text-green-500">
-              <Link href={"/About"}>About</Link>
-            </button>
-            <button className=" pr-2.5 pl-2.5 text-2xl hover:text-red-700">
-              <Link href={"/Contact"}>Contact</Link>
-            </button>
-            <button className=" pr-2.5 pl-2.5 text-2xl hover:text-green-500">
-              <Link href={"/Skills"}>Skills</Link>
-            </button>
-            <button className=" pr-2.5 pl-2.5 text-2xl hover:text-red-700">
-              <Link href={"/Why"}>Why me</Link>
-            </button>
-          </nav>
+            {/* Navigation */}
+            <nav className="flex flex-wrap gap-2 sm:gap-4 md:gap-6">
+              <Link
+                href="/"
+                className="px-3 py-1 text-lg md:text-2xl rounded transition hover:text-cyan-300
+               hover:bg-white/10 focus-visible:ring-2 ring-cyan-400"
+              >
+                Home
+              </Link>
+              <Link
+                href="/About"
+                className="px-3 py-1 text-lg md:text-2xl rounded transition hover:text-green-300
+               hover:bg-white/10 focus-visible:ring-2 ring-green-400"
+              >
+                About
+              </Link>
+              <Link
+                href="/Contact"
+                className="px-3 py-1 text-lg md:text-2xl rounded transition hover:text-red-300
+               hover:bg-white/10 focus-visible:ring-2 ring-red-400"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/Skills"
+                className="px-3 py-1 text-lg md:text-2xl rounded transition hover:text-green-400
+               hover:bg-white/10 focus-visible:ring-2 ring-green-300"
+              >
+                Skills
+              </Link>
+              <Link
+                href="/Why"
+                className="px-3 py-1 text-lg md:text-2xl rounded transition hover:text-fuchsia-300
+               hover:bg-white/10 focus-visible:ring-2 ring-fuchsia-300"
+              >
+                Why me
+              </Link>
+            </nav>
+          </div>
         </header>
         {children}
-        <footer className=" flex justify-center pt-7 pb-7 bg-black text-white">
-          &copy; 2025 Ssebayigga Sharif. All rights reserved.
-          <p className=" pl-3.5 pr-3.5">
+        <footer
+          className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-6 px-6 
+        py-7 bg-black text-white text-sm border-t border-gray-800 mt-12"
+        >
+          <span className="flex items-center opacity-90">
+            &copy; 2025{" "}
+            <span className="font-semibold px-1">Ssebayigga Sharif</span>. All
+            rights reserved.
+          </span>
+          <div className="flex items-center gap-4">
             <Link
-              href={"https://github.com/ssebayigga-sharif"}
-              className=" hover:text-red-700"
+              href="https://github.com/ssebayigga-sharif"
+              className="hover:text-red-500 transition-colors underline-offset-4 underline"
+              target="_blank" //opens in a new tab
+              rel="noopener noreferrer"
+              aria-label="Sharif's Github"
             >
               Github
             </Link>
-          </p>
-          <p className=" pr-3.5 pl-3.5">
+            <span className="hidden md:inline text-gray-500">|</span>
             <Link
-              href={"https://www.linkedin.com/in/sharif-ssebayigga-7025a6375/"}
-              className=" hover:text-green-500"
+              href="https://www.linkedin.com/in/sharif-ssebayigga-7025a6375/"
+              className="hover:text-green-400 transition-colors underline-offset-4 underline"
+              target="_blank" //opens it in  new tab
+              rel="noopener noreferrer" //increases security and privacy
+              aria-label="Sharif's LinkedIn"
             >
               LinkedIn
             </Link>
-          </p>
-          <p className=" pl-3.5 pr-3.5"> sharifsseba@gmail.com.</p>
+            <span className="hidden md:inline text-gray-500">|</span>
+            <a
+              href="mailto:sharifsseba@gmail.com"
+              className="hover:text-blue-400 transition-colors underline-offset-4 underline"
+              aria-label="Sharif's Email"
+            >
+              sharifsseba@gmail.com
+            </a>
+          </div>
         </footer>
       </body>
     </html>
