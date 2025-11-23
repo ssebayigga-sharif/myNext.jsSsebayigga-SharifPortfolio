@@ -6,7 +6,7 @@ import Link from "next/link";
 const ContactForm = () => {
   const [name, setName] = useState("Ssebayigga Sharif"); //sets the name
   const [email, setEmail] = useState("sharifsseba@gmail.com"); //sets the email
-  const [phone, setPhone] = useState("0760021334"); //sets the contact
+  const [phone, setPhone] = useState("+256760021334 / +256754564588"); //sets the contact
 
   return (
     <div>
@@ -77,7 +77,7 @@ const ContactForm = () => {
               <span className="flex items-center gap-2">
                 <label className="font-semibold">LinkedIn :</label>
                 <Link
-                  href="https://www.linkedin.com/in/sharif-ssebayigga-7025a6375/"
+                  href="https://www.linkedin.com/in/sharifssebayigga-dev/"
                   className="hover:text-red-700 underline"
                   target="_blank" //tells the browser to open the link in a new tab
                   rel="noopener noreferrer" //increases security and privacy

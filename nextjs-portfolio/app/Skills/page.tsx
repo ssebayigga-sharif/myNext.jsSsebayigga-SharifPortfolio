@@ -48,15 +48,15 @@ const Skills = () => {
     },
     {
       name: "jQuery",
-      description: "Legacy DOM manipulation & AJAX.",
+      description: "DOM manipulation & AJAX.",
     },
     {
       name: "Jest",
-      description: "Robust JavaScript testing framework.",
+      description: " JavaScript testing framework.",
     },
     {
       name: "Testing Library (React Testing Library)",
-      description: "User-centric component testing for React.",
+      description: " component testing for React.",
     },
   ];
 
@@ -87,18 +87,6 @@ const Skills = () => {
             {(item.name === "Jest" ||
               item.name.includes("Testing Library")) && (
               <div className="mt-3 flex flex-col items-center">
-                <Image
-                  src={
-                    item.name === "Jest"
-                      ? "/jest.svg"
-                      : "/testing-library-logo.svg"
-                  }
-                  alt={item.name + " logo"}
-                  width={40}
-                  height={40}
-                  className="mb-1"
-                  style={{ filter: "drop-shadow(0 2px 10px #d97706cc)" }}
-                />
                 <span className="text-xs font-semibold bg-purple-200 text-purple-800 px-2 py-1 rounded">
                   Testing Tool
                 </span>
@@ -110,7 +98,7 @@ const Skills = () => {
 
       <div className="mt-12 flex flex-row gap-8 w-full max-w-3xl justify-center">
         <Link
-          href="/projects"
+          href="/Skills/myprojects"
           className="bg-fuchsia-900 hover:bg-fuchsia-700 text-white font-semibold px-6 py-2 rounded shadow"
         >
           See My Projects

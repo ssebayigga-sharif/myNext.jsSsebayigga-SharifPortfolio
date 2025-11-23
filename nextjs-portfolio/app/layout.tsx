@@ -121,7 +121,7 @@ export default function RootLayout({
             </Link>
             <span className="hidden md:inline text-gray-500">|</span>
             <Link
-              href="https://www.linkedin.com/in/sharif-ssebayigga-7025a6375/"
+              href="https://www.linkedin.com/in/sharifssebayigga-dev/"
               className="hover:text-green-400 transition-colors underline-offset-4 underline"
               target="_blank" //opens it in  new tab
               rel="noopener noreferrer" //increases security and privacy

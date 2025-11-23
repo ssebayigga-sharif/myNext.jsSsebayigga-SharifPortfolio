@@ -121,7 +121,7 @@ const AboutMe = () => {
       </section>
 
       <footer className="mt-16 text-center text-gray-600 text-sm">
-        Made with by Ssebayigga Sharif —{" "}
+        Made by Ssebayigga Sharif —{" "}
         <span className="italic">Let's build something amazing together!</span>
       </footer>
     </main>
