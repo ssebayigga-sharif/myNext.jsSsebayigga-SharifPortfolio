@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build ",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "netlify-build": "next build && netlify-next build"
   },
   "dependencies": {
     "next": "^15.5.7",
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@netlify/next": "^1.4.9",
     "@tailwindcss/postcss": "^4.1.16",
     "@types/node": "^20",
     "@types/react": "^19",
