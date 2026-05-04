@@ -15,7 +15,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const myUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
 export const metadata: Metadata = {
+
+  metadataBase : new URL(myUrl),
   title: {
     template: "Sharif Portfolio",
     default: "Ssebayigga Sharif – Front-End Developer",
@@ -45,8 +49,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/saaarif.png",
-        width: 350,
-        height: 400,
+        width: 1200,
+        height: 630,
         alt: "Ssebayigga Sharif",
       },
     ],
@@ -54,6 +58,13 @@ export const metadata: Metadata = {
   icons: {
     icon: "/saaarif.png",
   },
+  twitter: {
+  card: "summary_large_image",
+  title: "Ssebayigga Sharif – Front-End Developer",
+  description:
+    "Front-End Developer specializing in Next.js, TypeScript, and React.",
+  images: ["/og-image.png"],
+}
 };
 
 export default function RootLayout({

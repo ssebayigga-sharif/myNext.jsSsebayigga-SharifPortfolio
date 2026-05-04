@@ -11,7 +11,7 @@ import {
   Zap,
   Layers,
 } from "lucide-react";
-import { GITHUB_URL, UPWORK_URL } from "@/lib/constants";
+import { GITHUB_URL, UPWORK_URL, LINKEDIN_URL } from "@/lib/constants";
 import { type Variants } from "framer-motion";
 import ContactForm from "@/components/sections/ContactForm";
 
@@ -172,7 +172,7 @@ export default function HomePage() {
               <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-indigo-500 via-purple-500 to-cyan-500 blur-sm opacity-60 animate-pulse" />
               <div className="relative">
                 <a
-                  href={UPWORK_URL}
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block group"
@@ -187,7 +187,7 @@ export default function HomePage() {
                   />
                   <div className="absolute inset-0 rounded-3xl bg-indigo-600/0 group-hover:bg-indigo-600/10 transition-colors duration-300 flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100">
                     <span className="flex items-center gap-1.5 bg-black/60 text-white text-sm font-semibold px-4 py-2 rounded-full backdrop-blur-sm">
-                      <ExternalLink size={13} /> View Upwork Profile
+                      <ExternalLink size={13} /> View LinkedIn Profile
                     </span>
                   </div>
                 </a>
