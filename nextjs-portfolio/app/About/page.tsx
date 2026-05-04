@@ -1,131 +1,131 @@
-/* eslint-disable react/no-unescaped-entities */
-import React from "react";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { SOFT_SKILLS } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: {
-    absolute: "About",
-  },
-  icons: {
-    icon: "/saaarif.png",
-  },
+  title: "About",
+  description:
+    "Learn more about Ssebayigga Sharif — a passionate Front-End Developer dedicated to building elegant, user-focused web applications.",
 };
 
-const AboutMe = () => {
-  // "About Me"
-  const aboutMe: string = `Hi, I am Ssebayigga Sharif  — a passionate Front-End Developer
-   dedicated to building seamless, elegant, and user-focused web applications. With a love for
-   clean code and eye-catching interfaces, I bring designs to life using HTML, CSS, JavaScript,
-   React.js, Next.js, and Tailwind CSS. My mission: create interactive digital experiences that people love
-   to use.`;
+const tools = [
+  "HTML5 & CSS3",
+  "JavaScript (ES6+)",
+  "TypeScript",
+  "React.js",
+  "Next.js",
+  "Tailwind CSS",
+  "Git & GitHub",
+  "Jest & RTL",
+];
 
-  const focus: string = "Current Focus";
-  const currentFocus: string = `I am currently sharpening my Next.js skills, diving deeper 
-  into TypeScript, and experimenting with advanced Tailwind CSS features to push my projects to the
-   next level. Continuous learning drives me to stay updated with the latest web tech trends.`;
-  //skills list
-  const softSkills: string[] = [
-    " Strong communication",
-    " Creative problem solving",
-    " Effective time management",
-    " Lifelong learning & adaptability",
-    " Team collaboration",
-    " Empathy & user-centric mindset",
-  ];
-  //tools list
-  const tools: string[] = [
-    " HTML5 & CSS",
-    " JavaScript (ES6+), React.js",
-    " Next.js & TypeScript",
-    "Tailwind CSS",
-    " Git & GitHub",
-    "jest",
-  ];
-
+export default function AboutPage() {
   return (
-    <main
-      className="min-h-screen bg-linear-to-b from-gray-50 to-blue-100 py-10 px-4 font-mono
-     text-gray-900"
-    >
-      <section className="mx-auto max-w-5xl grid gap-10 md:grid-cols-2 items-center">
-        <div className="flex flex-col items-start gap-6 md:pr-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold capitalize text-blue-900 mb-3">
-            About Me
-          </h1>
-          <p className="text-lg leading-relaxed">{aboutMe}</p>
-
-          <div>
-            <h2 className="text-2xl font-semibold mt-6 mb-2 text-blue-700">
-              Tools & Technologies
-            </h2>
-            <ul className="flex flex-wrap gap-3">
-              {tools.map((tool, idx) => (
-                <li
-                  key={idx}
-                  className="bg-blue-100 hover:bg-blue-200 text-blue-800 rounded-full px-4 py-1 
-                  text-sm transition"
-                >
-                  {tool}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="relative flex flex-col items-center justify-center gap-7">
-          <div
-            className="bg-white shadow-xl rounded-full overflow-hidden border-4
-           border-blue-200 hover:scale-105 transition"
-          >
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      {/* ── Hero Section ──────────────────────────────────────────── */}
+      <div className="flex flex-col lg:flex-row items-center gap-14 mb-20">
+        {/* Photo */}
+        <div className="shrink-0">
+          <div className="relative w-52 h-52 md:w-64 md:h-64">
+            <div className="absolute -inset-1 rounded-full bg-linear-to-br from-indigo-500 to-cyan-500 blur-sm opacity-50" />
             <Image
               src="/saaarif.png"
               alt="Ssebayigga Sharif"
-              width={200}
-              height={200}
-              className="object-cover"
+              width={256}
+              height={256}
+              className="relative rounded-full object-cover border-2 border-white/10 shadow-2xl w-full h-full"
               priority
             />
           </div>
-          <Link href="/Contact" passHref legacyBehavior>
-            <a
-              className="mt-2 px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full 
-            shadow font-semibold transition"
-            >
-              Contact Me
-            </a>
-          </Link>
         </div>
+
+        {/* Text */}
+        <div className="flex flex-col gap-5 text-center lg:text-left">
+          <div>
+            <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-2">
+              About Me
+            </p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
+              Passionate about{" "}
+              <span className="gradient-text">building for the web</span>
+            </h1>
+          </div>
+          <p className="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
+            Hi, I&apos;m{" "}
+            <span className="text-white font-semibold">Ssebayigga Sharif</span>{" "}
+            — a Front-End Developer dedicated to building seamless, elegant, and
+            user-focused web applications. With a love for clean code and
+            eye-catching interfaces, I bring designs to life using modern web
+            technologies.
+          </p>
+          <p className="text-gray-400 text-base leading-relaxed max-w-2xl">
+            My mission is to create interactive digital experiences that people
+            love to use — combining technical precision with creative problem
+            solving.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <Link
+              href="/#contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-indigo-900/40 group"
+            >
+              Hire Me
+              <ArrowRight
+                size={16}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Current Focus ─────────────────────────────────────────── */}
+      <section className="bg-gray-900 border border-gray-800 rounded-2xl p-8 mb-10">
+        <h2 className="text-2xl font-bold text-white mb-3">Current Focus</h2>
+        <p className="text-gray-400 leading-relaxed max-w-3xl">
+          I&apos;m currently sharpening my Next.js skills, diving deeper into
+          TypeScript, and experimenting with advanced Tailwind CSS and Framer
+          Motion to push my projects to the next level. Continuous learning
+          drives me to stay updated with the latest web tech trends.
+        </p>
       </section>
 
-      <section
-        className="mx-auto max-w-3xl mt-12 bg-white/80 p-7 rounded-xl shadow flex flex-col 
-      md:flex-row gap-10"
-      >
-        <div className="flex-1">
-          <h3 className="text-2xl font-bold text-blue-700 mb-3">Soft Skills</h3>
-          <ul className="space-y-2 pl-4">
-            {softSkills.map((item, index) => (
-              <li key={index} className="list-disc text-base">
-                {item}
+      {/* ── Two columns: Tools & Soft Skills ─────────────────────── */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Tools */}
+        <section className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+          <h2 className="text-xl font-bold text-white mb-5">
+            Tools &amp; Technologies
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {tools.map((tool) => (
+              <span
+                key={tool}
+                className="bg-indigo-900/40 border border-indigo-700/50 text-indigo-300 text-sm font-medium px-3 py-1.5 rounded-full"
+              >
+                {tool}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* Soft Skills */}
+        <section className="bg-gray-900 border border-gray-800 rounded-2xl p-8">
+          <h2 className="text-xl font-bold text-white mb-5">Soft Skills</h2>
+          <ul className="flex flex-col gap-3">
+            {SOFT_SKILLS.map((skill) => (
+              <li
+                key={skill}
+                className="flex items-center gap-2.5 text-gray-400 text-sm"
+              >
+                <CheckCircle2 size={16} className="text-emerald-400 shrink-0" />
+                {skill}
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="flex-1">
-          <h4 className="text-2xl font-bold text-blue-700 mb-3">{focus}</h4>
-          <p className="text-base">{currentFocus}</p>
-        </div>
-      </section>
-
-      <footer className="mt-16 text-center text-gray-600 text-sm">
-        Made by Ssebayigga Sharif —{" "}
-        <span className="italic">Let's build something amazing together!</span>
-      </footer>
-    </main>
+        </section>
+      </div>
+    </div>
   );
-};
-
-export default AboutMe;
+}

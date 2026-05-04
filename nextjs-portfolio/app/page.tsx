@@ -1,121 +1,280 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Metadata } from "next";
+import { motion } from "framer-motion";
+import {
+  GitBranch,
+  ExternalLink,
+  ArrowRight,
+  Code2,
+  Zap,
+  Layers,
+} from "lucide-react";
+import { GITHUB_URL, UPWORK_URL } from "@/lib/constants";
+import { type Variants } from "framer-motion";
+import ContactForm from "@/components/sections/ContactForm";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: "Home",
-  },
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+  }),
 };
 
-export default function Home() {
-  // Headings and subtext
-  const myHead: string = "Hello, I am Ssebayigga Sharif.";
-  const myTittle: string = "Front-End Developer";
-  const able: string = "Creative and Flexible";
+const stats = [
+  { label: "Projects Shipped", value: "10+" },
+  { label: "Technologies", value: "8+" },
+  { label: "Available", value: "Now" },
+];
 
+const highlights = [
+  {
+    icon: Code2,
+    label: "Clean Code",
+    desc: "Readable, maintainable, scalable",
+  },
+  {
+    icon: Zap,
+    label: "Fast Delivery",
+    desc: "Delivering polished builds on time",
+  },
+  {
+    icon: Layers,
+    label: "Full UI/UX",
+    desc: "From prototypes to polished experiences",
+  },
+];
+
+export default function HomePage() {
   return (
-    <main
-      className="min-h-screen bg-linear-to-br from-gray-100 via-white to-blue-100 flex 
-    flex-col justify-center items-center py-12"
-    >
+    <div className="relative min-h-[calc(100vh-80px)] flex flex-col justify-center overflow-hidden">
       <div
-        className="flex flex-col md:flex-row items-center md:justify-between w-full max-w-6xl 
-      mx-auto px-6 space-y-10 md:space-y-0"
-      >
-        {/* Left section: Texts and Upwork Link */}
-        <div className="md:w-2/3 flex flex-col gap-6">
-          <Link
-            href="https://www.upwork.com/freelancers/~013bc5e039b326c4a3"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h1
-              className="text-5xl md:text-7xl font-extrabold font-serif capitalize text-gray-900
-             hover:text-blue-700 transition-colors duration-300 animate-fade-in-up cursor-pointer shadow-sm"
-            >
-              {myHead}
-            </h1>
-          </Link>
-          <h3 className="text-3xl md:text-4xl font-semibold text-blue-500 font-mono animate-fade-in">
-            {myTittle}
-          </h3>
-          <h4 className="text-2xl md:text-3xl text-gray-600 tracking-wide">
-            {able}
-          </h4>
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(99,102,241,1) 1px, transparent 1px), linear-gradient(to right, rgba(99,102,241,1) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
+        }}
+      />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2  h-150 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
-          {/*  about me section */}
-          <p className="text-lg md:text-xl text-gray-700 mt-2 max-w-xl">
-            I build responsive, dynamic web applications with{" "}
-            <span className="font-bold text-blue-500">Next.js</span> and{" "}
-            <span className="font-bold text-blue-500">TypeScript</span>,
-            focusing on clean, beautiful UIs and seamless user experiences. I
-            love solving problems with creativity and flexibility!
-          </p>
-
-          <div className="flex gap-4 mt-6">
-            <Link
-              href="https://github.com/ssebayigga-sharif"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-2 rounded shadow bg-gray-900 text-white
-               hover:bg-blue-700 transition-colors duration-300 font-semibold"
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+          <div className="flex-1 flex flex-col gap-6 text-center lg:text-left">
+            <motion.div
+              custom={0}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="inline-flex items-center gap-2 bg-emerald-900/30 border border-emerald-700/40 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full w-fit mx-auto lg:mx-0"
             >
-              <svg
-                className="w-5 h-5 mr-2 fill-white"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              Open to work · Frontend Developer
+            </motion.div>
+
+            <motion.h1
+              custom={1}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.05]"
+            >
+              Hi, I&apos;m <span className="gradient-text">Ssebayigga</span>
+              <br />
+              <span className="text-gray-300 text-4xl sm:text-5xl lg:text-6xl font-bold">
+                Sharif
+              </span>
+            </motion.h1>
+
+            <motion.p
+              custom={2}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="text-lg md:text-xl text-indigo-300 font-semibold tracking-wide font-mono"
+            >
+              {"<"} Front-End Developer · Next.js · TypeScript {"/>"}
+            </motion.p>
+
+            <motion.p
+              custom={3}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
+            >
+              I build high-quality web experiences that help businesses launch
+              faster, convert visitors, and stand out with polished design and
+              strong performance.
+            </motion.p>
+
+            <motion.div
+              custom={4}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+            >
+              <Link
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-indigo-900/40 group"
               >
-                <path
-                  d="M12 .5a12 12 0 0 0-3.793 23.401c.6.112.82-.26.82-.577 0-.287-.01-1.05-.016-2.06-3.
-                337.726-4.042-1.61-4.042-1.61-.547-1.377-1.336-1.745-1.336-1.745-1.092-.746.083-.73.083-.73
-                1.207.086 1.843 1.24 1.843 1.24 1.074 1.84 2.817 1.308 3.505 1 .11-.779.42-1.308.763-1.61-2.666-.
-                307-5.467-1.33-5.467-5.92 0-1.306.467-2.373 1.234-3.21-.124-.308-.534-1.545.117-3.222 0 0 1.008-.
-                322 3.3 1.23a11.53 11.53 0 0 1 6.006 0c2.291-1.553 3.297-1.23 3.297-1.23.652 1.677.242 2.914.119
-                 3.222.77.837 1.232 1.904 1.232 3.21 0 4.6-2.805 5.61-5.479 5.911.431.372.815 1.104.815 2.225 0
-                 1.606-.014 2.9-.014 3.294 0 .319.216.694.825.576A12 12 0 0 0 12 .5z"
+                Hire Me
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1 transition-transform"
                 />
-              </svg>
-              GitHub
-            </Link>
-            <Link
-              href="mailto: sharifsseba@gmail.com"
-              className="inline-flex items-center px-6 py-2 rounded shadow border border-blue-500
-               text-blue-500 hover:bg-blue-500 hover:text-white transition-colors duration-300 font-semibold"
+              </Link>
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-700 hover:border-gray-500 text-gray-400 hover:text-white font-semibold rounded-xl transition-all duration-200 hover:bg-white/5"
+              >
+                <GitBranch size={16} />
+                GitHub
+              </a>
+            </motion.div>
+
+            <motion.div
+              custom={5}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="flex gap-8 justify-center lg:justify-start pt-2"
             >
-              Contact Me
-            </Link>
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="flex flex-col items-center lg:items-start"
+                >
+                  <span className="text-2xl font-extrabold text-white">
+                    {stat.value}
+                  </span>
+                  <span className="text-xs text-gray-500 mt-0.5">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col items-center gap-6"
+          >
+            <div className="relative">
+              <div className="absolute -inset-1 rounded-3xl bg-linear-to-br from-indigo-500 via-purple-500 to-cyan-500 blur-sm opacity-60 animate-pulse" />
+              <div className="relative">
+                <a
+                  href={UPWORK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <Image
+                    src="/saaarif.png"
+                    alt="Ssebayigga Sharif – Front-End Developer"
+                    width={300}
+                    height={340}
+                    className="rounded-3xl border-2 border-white/10 object-cover shadow-2xl group-hover:scale-[1.02] transition-transform duration-300"
+                    priority
+                  />
+                  <div className="absolute inset-0 rounded-3xl bg-indigo-600/0 group-hover:bg-indigo-600/10 transition-colors duration-300 flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100">
+                    <span className="flex items-center gap-1.5 bg-black/60 text-white text-sm font-semibold px-4 py-2 rounded-full backdrop-blur-sm">
+                      <ExternalLink size={13} /> View Upwork Profile
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2 w-full max-w-75">
+              {highlights.map(({ icon: Icon, label, desc }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-3 bg-gray-900/80 border border-gray-800 rounded-xl px-4 py-3 backdrop-blur-sm"
+                >
+                  <div className="p-1.5 rounded-lg bg-indigo-600/20">
+                    <Icon size={14} className="text-indigo-400" />
+                  </div>
+                  <div className="flex flex-col leading-none">
+                    <span className="text-white text-xs font-semibold">
+                      {label}
+                    </span>
+                    <span className="text-gray-500 text-xs mt-0.5">{desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="mt-16 grid gap-6 grid-cols-1 md:grid-cols-3">
+          <div className="rounded-3xl border border-gray-800 bg-gray-900/80 p-8">
+            <p className="text-sm text-indigo-400 uppercase tracking-[0.3em] mb-4">
+              What I Build
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              High-performance web apps
+            </h2>
+            <p className="text-gray-400 mt-4 text-sm leading-relaxed">
+              Custom applications built for speed, accessibility, and scale —
+              delivered with polished user experiences.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-gray-800 bg-gray-900/80 p-8">
+            <p className="text-sm text-indigo-400 uppercase tracking-[0.3em] mb-4">
+              UX & Motion
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              Interactive interfaces
+            </h2>
+            <p className="text-gray-400 mt-4 text-sm leading-relaxed">
+              Smooth interactions, refined animations, and an intuitive visual
+              hierarchy that keeps users engaged.
+            </p>
+          </div>
+          <div className="rounded-3xl border border-gray-800 bg-gray-900/80 p-8">
+            <p className="text-sm text-indigo-400 uppercase tracking-[0.3em] mb-4">
+              Product Focus
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              Business-ready results
+            </h2>
+            <p className="text-gray-400 mt-4 text-sm leading-relaxed">
+              I translate ideas into polished web products that communicate
+              value clearly and convert visitors into clients.
+            </p>
           </div>
         </div>
 
-        {/* Right section: Profile image */}
-        <div className="md:w-1/3 flex justify-center items-center">
-          <Link
-            href="https://github.com/ssebayigga-sharif"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <div className="relative group">
-              <Image
-                src="/saaarif.png"
-                alt="Sharif"
-                width={350}
-                height={400}
-                className="rounded-xl shadow-2xl border-4 border-white 
-                group-hover:opacity-70 group-hover:scale-105 transition-all duration-300 transform"
-                priority
-              />
-              <div
-                className="absolute bottom-3 left-1/2 -translate-x-1/2
-               px-4 py-1 bg-blue-600/80 rounded-full text-white text-base
-               font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow"
-              >
-                GitHub Profile
-              </div>
-            </div>
-          </Link>
-        </div>
+        {/* Contact Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          id="contact"
+          className="mt-24"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Let&apos;s Work Together
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Ready to bring your ideas to life? Get in touch and let&apos;s
+              discuss your project.
+            </p>
+          </div>
+          <ContactForm />
+        </motion.div>
       </div>
-    </main>
+    </div>
   );
 }

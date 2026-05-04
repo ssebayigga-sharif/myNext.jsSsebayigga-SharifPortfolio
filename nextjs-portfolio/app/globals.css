@@ -1,11 +1,11 @@
 @import "tailwindcss";
-/* @tailwind base;
-@tailwind components; */
-@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030712;
+  --foreground: #f9fafb;
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --border: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
@@ -15,69 +15,135 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Base ────────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #fcfcfc;
-  text-align: center;
-  font-weight: bolder;
+  background-color: #030712;
+  color: #f9fafb;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+  font-weight: 400;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes slide-up {
-  0% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #4f46e5;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
 }
 
-.animate-slide-up {
-  animation: slide-up 10s ease-out forwards;
-}
-@keyframes slide-down {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* ── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background-color: #6366f1;
+  color: white;
 }
 
-.animate-slide-down {
-  animation: slide-down 10s ease-out forwards;
-}
-
+/* ── Keyframe Animations ─────────────────────────────────────────────────── */
 @keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-in-up {
-  animation: fade-in-up 1s ease-out;
-}
-.animate-fade-in {
-  animation: fade-in 1.4s cubic-bezier(0.77, 0, 0.175, 1);
-}
-@keyframes fade-in {
   from {
     opacity: 0;
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+  50%       { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+}
+
+/* ── Utility Classes ─────────────────────────────────────────────────────── */
+.animate-fade-in-up {
+  animation: fade-in-up 0.7s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #60a5fa 50%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #6366f1, #60a5fa, #34d399);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Animation Delays ────────────────────────────────────────────────────── */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* ── Focus Styles ────────────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
 }
