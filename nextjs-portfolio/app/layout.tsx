@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
   metadataBase : new URL(myUrl),
   title: {
-    template: "Sharif Portfolio",
+    template: "%s | Sharif Portfolio",
     default: "Ssebayigga Sharif – Front-End Developer",
   },
   description:
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   title: "Ssebayigga Sharif – Front-End Developer",
   description:
     "Front-End Developer specializing in Next.js, TypeScript, and React.",
-  images: ["/og-image.png"],
+  images: ["/saaarif.png"],
 }
 };
 

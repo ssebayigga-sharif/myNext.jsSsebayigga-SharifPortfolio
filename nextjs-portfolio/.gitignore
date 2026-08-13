@@ -33,13 +33,12 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
-# vercel
+# vercel plugin
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
+# local env
 .env.local
-.env.urls

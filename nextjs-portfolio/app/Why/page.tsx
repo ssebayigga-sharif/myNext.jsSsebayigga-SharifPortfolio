@@ -82,7 +82,7 @@ export default function WhyPage() {
 
       <div className="mt-14 text-center">
         <Link
-          href="/contact"
+          href="/#contact"
           className="inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo-900/40 transition-all duration-200 hover:bg-indigo-500"
         >
           Talk about your next project

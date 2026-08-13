@@ -153,7 +153,7 @@ export default function ContactForm() {
         <input
           id="from_name"
           type="text"
-          placeholder="John Doe"
+          placeholder="Sharif Ssebayigga"
           className={inputClass}
           {...register("from_name")}
         />
@@ -170,7 +170,7 @@ export default function ContactForm() {
         <input
           id="from_email"
           type="email"
-          placeholder="john@example.com"
+          placeholder="sharifsseba@example.com"
           className={inputClass}
           {...register("from_email")}
         />

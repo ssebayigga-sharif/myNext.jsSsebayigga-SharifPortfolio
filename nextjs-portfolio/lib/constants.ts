@@ -1,6 +1,6 @@
 import type { Skill, Project } from "./types";
 
-// ── Personal Info ────────────────────────────────────────────────────────────
+//  Personal Info
 export const SITE_NAME = "Ssebayigga Sharif";
 export const SITE_TITLE = "Ssebayigga Sharif – Front-End Developer";
 export const SITE_DESCRIPTION =
@@ -13,22 +13,30 @@ export const UPWORK_URL =
 export const GITHUB_URL = "https://github.com/ssebayigga-sharif";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/sharifssebayigga-dev/";
 
-// ── Navigation ───────────────────────────────────────────────────────────────
+//  Navigation
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Skills", href: "/skills" },
+  { label: "Why Me", href: "/why" },
 ];
 
-// ── Skills ───────────────────────────────────────────────────────────────────
+//  Skills
 export const SKILLS: Skill[] = [
   {
     name: "HTML5",
     description: "Semantic, accessible markup for modern web applications.",
     category: "frontend",
   },
+
   {
     name: "CSS3",
+    description:
+      "Responsive design, animations, and modern layout with Grid & Flexbox.",
+    category: "frontend",
+  },
+  {
+    name: "SASS Styling",
     description:
       "Responsive design, animations, and modern layout with Grid & Flexbox.",
     category: "frontend",
@@ -49,12 +57,7 @@ export const SKILLS: Skill[] = [
       "Component-based UI development with hooks and reusable architecture.",
     category: "frontend",
   },
-  {
-    name: "Next.js",
-    description:
-      "Production React framework for fast, SEO-friendly, modern web apps.",
-    category: "frontend",
-  },
+
   {
     name: "Tailwind CSS",
     description:
@@ -80,7 +83,7 @@ export const SKILLS: Skill[] = [
   },
 ];
 
-// ── Projects ─────────────────────────────────────────────────────────────────
+// ── Projects
 export const PROJECTS: Project[] = [
   {
     title: "Sharif Calculator",
@@ -113,7 +116,7 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-// ── Soft Skills ───────────────────────────────────────────────────────────────
+// ── Soft Skills
 export const SOFT_SKILLS = [
   "Strong communication",
   "Creative problem solving",
@@ -123,7 +126,7 @@ export const SOFT_SKILLS = [
   "Empathy & user-centric mindset",
 ];
 
-// ── Why Me points ─────────────────────────────────────────────────────────────
+// ── Why Me
 export const WHY_ME_POINTS = [
   {
     title: "Modern Front-End Stack",

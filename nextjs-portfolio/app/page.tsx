@@ -11,9 +11,10 @@ import {
   Zap,
   Layers,
 } from "lucide-react";
-import { GITHUB_URL, UPWORK_URL, LINKEDIN_URL } from "@/lib/constants";
+import { GITHUB_URL, LINKEDIN_URL, PROJECTS } from "@/lib/constants";
 import { type Variants } from "framer-motion";
 import ContactForm from "@/components/sections/ContactForm";
+import ProjectCard from "@/components/sections/ProjectCard";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -25,7 +26,7 @@ const fadeUp: Variants = {
 };
 
 const stats = [
-  { label: "Projects Shipped", value: "10+" },
+  { label: "Projects Shipped", value: "2+" },
   { label: "Technologies", value: "8+" },
   { label: "Available", value: "Now" },
 ];
@@ -96,7 +97,7 @@ export default function HomePage() {
               animate="visible"
               className="text-lg md:text-xl text-indigo-300 font-semibold tracking-wide font-mono"
             >
-              {"<"} Front-End Developer · Next.js · TypeScript {"/>"}
+              {"<"} Front-End Developer · React.js · TypeScript {"/>"}
             </motion.p>
 
             <motion.p
@@ -106,7 +107,7 @@ export default function HomePage() {
               animate="visible"
               className="text-gray-400 text-base md:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0"
             >
-              I build high-quality web experiences that help businesses launch
+              I build high-quality web Applications that help businesses launch
               faster, convert visitors, and stand out with polished design and
               strong performance.
             </motion.p>
@@ -253,6 +254,38 @@ export default function HomePage() {
             </p>
           </div>
         </div>
+
+        {/* Projects Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          id="projects"
+          className="mt-24"
+        >
+          <div className="text-center mb-12">
+            <p className="text-indigo-400 text-sm font-semibold uppercase tracking-widest mb-2">
+              My Work
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Featured Projects
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              A selection of projects I&apos;ve built — each focused on clean
+              code, performance, and a polished user experience.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PROJECTS.map((project, index) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                index={index}
+              />
+            ))}
+          </div>
+        </motion.div>
 
         {/* Contact Section */}
         <motion.div
