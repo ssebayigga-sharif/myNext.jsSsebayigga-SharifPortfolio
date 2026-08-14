@@ -35,13 +35,13 @@ export default function Footer() {
               </p>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
-              Building fast, beautiful, and accessible web experiences. Open to
-              freelance projects and full-time opportunities.
+              Building fast, problem-solving and accessible web applications.
+              Open to freelance projects and full-time opportunities.
             </p>
             {/* Availability Badge */}
             <div className="inline-flex items-center gap-2 bg-emerald-900/30 border border-emerald-700/50 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full w-fit">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              Available for freelance work
+              Available for any job opportunity.
             </div>
           </div>
 
@@ -142,7 +142,7 @@ export default function Footer() {
             reserved.
           </p>
           <p className="text-gray-600 text-xs">
-            Built with Next.js · TypeScript · Tailwind CSS
+            Built with React.js · TypeScript · SASS CSS
           </p>
         </div>
       </div>
