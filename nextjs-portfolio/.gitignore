@@ -42,3 +42,8 @@ next-env.d.ts
 
 # local env
 .env.local
+node_modules/
+.next/
+.open-next/
+.env*
+!.env.example
