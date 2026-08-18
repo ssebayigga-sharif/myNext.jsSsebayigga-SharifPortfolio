@@ -6,5 +6,9 @@
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
+  },
+  "vars": {
+    "BREVO_SENDER_EMAIL": "sharifsseba@gmail.com",
+    "BREVO_SENDER_NAME": "Ssebayigga Sharif"
   }
 }
