@@ -4,7 +4,7 @@ import { CONTACT_EMAIL } from "@/lib/constants";
 const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
 const BREVO_API_KEY = process.env.BREVO_API_KEY ?? "";
 const SENDER_EMAIL = process.env.BREVO_SENDER_EMAIL ?? CONTACT_EMAIL;
-const SENDER_NAME = process.env.BREVO_SENDER_NAME ?? "Ssebayigga Sharif";
+const SENDER_NAME = process.env.BREVO_SENDER_NAME ?? "Sharif Ssebayigga";
 
 const isConfigured = Boolean(BREVO_API_KEY && SENDER_EMAIL);
 

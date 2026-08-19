@@ -48,3 +48,6 @@ node_modules/
 .open-next/
 .env*
 !.env.example
+
+# wrangler / miniflare local state
+.wrangler/

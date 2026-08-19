@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "cloudflare:build": "opennextjs-cloudflare build",
     "deploy": "npm run cloudflare:build && wrangler deploy",
@@ -23,8 +23,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@netlify/next": "^1.4.9",
-    "@netlify/plugin-nextjs": "^5.15.7",
     "@opennextjs/cloudflare": "^1.20.2",
     "@tailwindcss/postcss": "^4.1.16",
     "@types/node": "^20",
