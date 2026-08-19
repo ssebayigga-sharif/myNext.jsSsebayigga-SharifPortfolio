@@ -11,7 +11,7 @@ export const PHONE_SECONDARY = "+256 754 564 588";
 export const WHATSAPP_URL =
   "https://wa.me/256760021334?text=" +
   encodeURIComponent(
-    "Hello Sharif, I found your portfolio and would like to chat!",
+    "Hello Sharif, I found your portfolio and would like to talk to you about business!",
   );
 export const UPWORK_URL =
   "https://www.upwork.com/freelancers/~013bc5e039b326c4a3";
