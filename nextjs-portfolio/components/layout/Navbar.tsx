@@ -24,8 +24,27 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [pathname]);
 
+  // Close on Escape + lock body scroll while the drawer is open
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [menuOpen]);
+
   return (
-    <header
+    <>
+      <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-gray-950/95 backdrop-blur-md shadow-lg shadow-black/20"
@@ -100,43 +119,86 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Sidebar */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden border-t border-white/10"
-          >
-            <nav className="flex flex-col px-4 py-4 gap-1 bg-gray-950">
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      isActive
-                        ? "bg-indigo-600/20 text-indigo-300"
-                        : "text-gray-400 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <Link
-                href="/#contact"
-                className="mt-2 px-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg text-center transition-colors duration-200"
-              >
-                Hire Me
-              </Link>
-            </nav>
-          </motion.div>
+          <>
+            {/* Backdrop — click outside to close */}
+            <motion.button
+              type="button"
+              aria-label="Close navigation menu"
+              onClick={() => setMenuOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+            />
+
+            {/* Sidebar panel — 80% width on mobile */}
+            <motion.aside
+              key="mobile-sidebar"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
+              className="fixed top-0 right-0 z-50 flex h-full w-[80vw] flex-col border-l border-white/10 bg-gray-950 shadow-2xl shadow-black/40 md:hidden"
+            >
+              {/* Panel header */}
+              <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+                <div className="flex flex-col leading-none">
+                  <span className="text-white font-bold text-base tracking-tight">
+                    Ssebayigga Sharif
+                  </span>
+                  <span className="text-indigo-400 text-xs font-medium tracking-widest uppercase">
+                    Menu
+                  </span>
+                </div>
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className="p-2 -mr-2 rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition"
+                  aria-label="Close navigation menu"
+                >
+                  <X size={22} />
+                </button>
+              </div>
+
+              {/* Links */}
+              <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-4 py-6">
+                {NAV_LINKS.map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={`px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                        isActive
+                          ? "bg-indigo-600/20 text-indigo-300"
+                          : "text-gray-400 hover:text-white hover:bg-white/5"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              {/* Footer action */}
+              <div className="border-t border-white/10 px-4 py-6">
+                <Link
+                  href="/#contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-4 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg text-center transition-colors duration-200"
+                >
+                  Hire Me
+                </Link>
+              </div>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
-    </header>
+      </header>
+    </>
   );
 }

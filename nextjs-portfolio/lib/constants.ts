@@ -8,6 +8,11 @@ export const SITE_DESCRIPTION =
 export const CONTACT_EMAIL = "sharifsseba@gmail.com";
 export const PHONE_PRIMARY = "+256 760 021 334";
 export const PHONE_SECONDARY = "+256 754 564 588";
+export const WHATSAPP_URL =
+  "https://wa.me/256760021334?text=" +
+  encodeURIComponent(
+    "Hello Sharif, I found your portfolio and would like to chat!",
+  );
 export const UPWORK_URL =
   "https://www.upwork.com/freelancers/~013bc5e039b326c4a3";
 export const GITHUB_URL = "https://github.com/ssebayigga-sharif";

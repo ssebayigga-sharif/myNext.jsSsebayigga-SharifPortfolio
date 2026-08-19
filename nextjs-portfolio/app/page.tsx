@@ -83,10 +83,10 @@ export default function HomePage() {
               animate="visible"
               className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.05]"
             >
-              Hi, I&apos;m <span className="gradient-text">Ssebayigga</span>
+              Hello, I Am <span className="gradient-text">Sharif</span>
               <br />
               <span className="text-gray-300 text-4xl sm:text-5xl lg:text-6xl font-bold">
-                Sharif
+                Ssebayigga
               </span>
             </motion.h1>
 
